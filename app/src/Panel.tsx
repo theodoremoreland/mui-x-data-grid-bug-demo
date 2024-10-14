@@ -106,22 +106,11 @@ const rows: Person[] = [
   { id: 50, lastName: "Green", firstName: "Harley", age: 50 },
 ];
 
-function Grid1({ rows }: { rows: Person[] }): ReactElement {
+function Grid1(): ReactElement {
   return (
     <DataGrid
       sx={{
         border: "none",
-        // Shows checkbox for header row
-        "& .MuiDataGrid-columnHeaderTitleContainer": {
-          display: "flex !important",
-        },
-        " .provisional": {
-          backgroundColor: "#ffff9f",
-        },
-        " .MuiDataGrid-cell--editing": {
-          justifyContent: "center",
-          alignItems: "center",
-        },
       }}
       rows={rows}
       columns={columns}
@@ -143,12 +132,18 @@ function Grid1({ rows }: { rows: Person[] }): ReactElement {
   );
 }
 
-function Grid2(): ReactElement {
+function Grid2({ rows }: { rows: Person[] }): ReactElement {
   return (
     <DataGrid
+      sx={{
+        border: "none",
+      }}
       rows={rows}
       columns={columns}
       initialState={{
+        sorting: {
+          sortModel,
+        },
         pagination: {
           paginationModel: {
             page: 0,
@@ -264,7 +259,9 @@ function Panel({ handleClose }: Props): ReactElement {
                   startIcon={<Delete />}
                   variant="outlined"
                   color="error"
-                  onClick={() => {}}
+                  onClick={() => {
+                    setStateRows(rows.slice(0, 9));
+                  }}
                 >
                   Delete
                 </Button>
@@ -273,7 +270,7 @@ function Panel({ handleClose }: Props): ReactElement {
           </Stack>
         </Stack>
 
-        {selectedTab === 0 ? <Grid1 rows={stateRows} /> : <Grid2 />}
+        {selectedTab === 0 ? <Grid1 /> : <Grid2 rows={stateRows} />}
       </Stack>
     </Stack>
   );
