@@ -17,7 +17,7 @@ I tried to recreate the bug with only the necessary dependencies, styles, and el
 
 I recreated the bug with two combinations of package versions. The first tries to replicate the packages used when first encountering the error. Said combination can be found on the `main` branch. The second combination tries to use the latest package versions and can be found on the `updated-package-versions` branch.
 
-This bug was discovered when working on a feature for work, in which case we are using Data Grid Premium. However, as I do not have a personal premium license, this demo using the free version. It seems both versions encounter the same error.
+This bug was discovered when working on a feature for work, in which case we are using Data Grid Premium. However, as I do not have a personal Premium license, this demo uses the free version. It seems both versions encounter the same error.
 
 ## The bug
 
