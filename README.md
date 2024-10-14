@@ -51,11 +51,11 @@ by clicking and dragging the scroll bar down does not produce an error nor does 
 
 #### Screenshots
 
-<img src="presentation/1.png" width="600">
-<img src="presentation/2.png" width="600">
-<img src="presentation/3.png" width="600">
-<img src="presentation/4.png" width="600">
-<img src="presentation/5.png" width="600">
+<img src="screenshots/1.png" width="600">
+<img src="screenshots/2.png" width="600">
+<img src="screenshots/3.png" width="600">
+<img src="screenshots/4.png" width="600">
+<img src="screenshots/5.png" width="600">
 
 #### Use case 2
 
@@ -71,8 +71,8 @@ to get the error to produce in Firefox._
 
 #### Screenshots
 
-<img src="presentation/1.png" width="600">
-<img src="presentation/2.png" width="600">
-<img src="presentation/3.png" width="600">
-<img src="presentation/6.png" width="600">
-<img src="presentation/7.png" width="600">
+<img src="screenshots/1.png" width="600">
+<img src="screenshots/2.png" width="600">
+<img src="screenshots/3.png" width="600">
+<img src="screenshots/6.png" width="600">
+<img src="screenshots/7.png" width="600">
