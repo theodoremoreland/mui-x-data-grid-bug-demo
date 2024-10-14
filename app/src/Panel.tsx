@@ -1,6 +1,6 @@
 import { ReactElement, SyntheticEvent, useEffect, useState } from "react";
 
-import { Add, Close, Delete } from "@mui/icons-material";
+import { Close, Delete, Refresh } from "@mui/icons-material";
 import {
   Button,
   Divider,
@@ -106,22 +106,41 @@ const rows: Person[] = [
   { id: 50, lastName: "Green", firstName: "Harley", age: 50 },
 ];
 
-function Grid1({ rows }: { rows: Person[] }): ReactElement {
+function Grid1(): ReactElement {
+  const columns = [
+    { field: "id", headerName: "ID", width: 90 },
+    {
+      field: "description",
+      headerName: "Description",
+      width: 500,
+    },
+  ];
+  const rows = [
+    { id: 1, description: "Click 'Reset' button to reset Grid #2's state." },
+  ];
   return (
     <DataGrid
       sx={{
         border: "none",
-        // Shows checkbox for header row
-        "& .MuiDataGrid-columnHeaderTitleContainer": {
-          display: "flex !important",
+      }}
+      rows={rows}
+      columns={columns}
+      initialState={{
+        columns: {
+          columnVisibilityModel: {
+            id: false,
+          },
         },
-        " .provisional": {
-          backgroundColor: "#ffff9f",
-        },
-        " .MuiDataGrid-cell--editing": {
-          justifyContent: "center",
-          alignItems: "center",
-        },
+      }}
+    />
+  );
+}
+
+function Grid2({ rows }: { rows: Person[] }): ReactElement {
+  return (
+    <DataGrid
+      sx={{
+        border: "none",
       }}
       rows={rows}
       columns={columns}
@@ -132,27 +151,7 @@ function Grid1({ rows }: { rows: Person[] }): ReactElement {
         pagination: {
           paginationModel: {
             page: 0,
-            pageSize: 10,
-          },
-        },
-      }}
-      pageSizeOptions={[10, 30, 50]}
-      checkboxSelection
-      disableRowSelectionOnClick
-    />
-  );
-}
-
-function Grid2(): ReactElement {
-  return (
-    <DataGrid
-      rows={rows}
-      columns={columns}
-      initialState={{
-        pagination: {
-          paginationModel: {
-            page: 0,
-            pageSize: 10,
+            pageSize: 50,
           },
         },
       }}
@@ -200,6 +199,7 @@ function Panel({ handleClose }: Props): ReactElement {
           style={{
             fontSize: "1.25rem",
             fontWeight: 500,
+            padding: "0px 16px",
             textOverflow: "ellipsis",
             overflow: "hidden",
             whiteSpace: "nowrap",
@@ -250,12 +250,12 @@ function Panel({ handleClose }: Props): ReactElement {
           >
             {selectedTab === 0 ? (
               <Button
-                title="Create"
-                startIcon={<Add />}
+                title="Reset"
+                startIcon={<Refresh />}
                 variant="contained"
-                onClick={() => {}}
+                onClick={() => setStateRows(rows)}
               >
-                Create
+                Reset
               </Button>
             ) : (
               <>
@@ -264,7 +264,9 @@ function Panel({ handleClose }: Props): ReactElement {
                   startIcon={<Delete />}
                   variant="outlined"
                   color="error"
-                  onClick={() => {}}
+                  onClick={() => {
+                    setStateRows(rows.slice(0, 9));
+                  }}
                 >
                   Delete
                 </Button>
@@ -272,8 +274,7 @@ function Panel({ handleClose }: Props): ReactElement {
             )}
           </Stack>
         </Stack>
-
-        {selectedTab === 0 ? <Grid1 rows={stateRows} /> : <Grid2 />}
+        {selectedTab === 0 ? <Grid1 /> : <Grid2 rows={stateRows} />}
       </Stack>
     </Stack>
   );
