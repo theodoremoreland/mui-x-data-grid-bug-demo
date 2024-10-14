@@ -49,6 +49,14 @@ by clicking and dragging the scroll bar down does not produce an error nor does 
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
 5. Change Rows per page option to 10 instead of 50
 
+#### Screenshots
+
+<img src="presentation/1.png" width="600">
+<img src="presentation/2.png" width="600">
+<img src="presentation/3.png" width="600">
+<img src="presentation/4.png" width="600">
+<img src="presentation/5.png" width="600">
+
 #### Use case 2
 
 _NOTE: Weirdly enough, the following steps produce an error far more often
@@ -59,4 +67,12 @@ to get the error to produce in Firefox._
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
-5. Click the DELETE button (top right, just above Data Grid)
+5. Click the DELETE button (top right, just above Data Grid)\
+
+#### Screenshots
+
+<img src="presentation/1.png" width="600">
+<img src="presentation/2.png" width="600">
+<img src="presentation/3.png" width="600">
+<img src="presentation/6.png" width="600">
+<img src="presentation/7.png" width="600">
