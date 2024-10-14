@@ -21,7 +21,7 @@ This bug was discovered when working on a feature for work, in which case we are
 
 ## The bug
 
-When decreasing the number of rows in a Data Grid via clicking a lesser page option or via programmatically deleting rows via some custom UI prompt (such as a Delete button), the Data Grid will throw the following error on `Chrome`:
+When scrolling to the very bottom of the virtual scrollbar using a scroll wheel then decreasing the number of rows in a Data Grid via clicking a lesser page option or via programmatically deleting rows via some custom UI prompt (such as a Delete button) such that the vertical, virtual scroll bar is no longer needed, the Data Grid will throw the following error on `Chrome`:
 
 ```
 Cannot set properties of null (setting 'scrollTop')
