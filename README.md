@@ -13,6 +13,8 @@ I tried to recreate the bug with only the necessary dependencies, styles, and el
 
 I recreated the bug with two combinations of package versions. The first tries to replicate the packages used when first encountering the error. Said combination can be found on the `main` branch. The second combination tries to use the latest package versions and can be found on the `updated-package-versions` branch.
 
+This bug was discovered when working on a feature for work, in which case we are using Data Grid Premium. However, as I do not have a personal premium license, this demo using the free version. It seems both versions encounter the same error.
+
 ## The bug
 
 When decreasing the number of rows in a Data Grid via clicking a lesser page option or via programmatically deleting rows via some custom UI prompt (such as a Delete button), the Data Grid will throw the following error on `Chrome`:
@@ -32,7 +34,7 @@ scrollbar is null
 ./node_modules/@mui/utils/esm/useEventCallback/useEventCallback.js/useEventCallback/<@http://localhost:3000/static/js/bundle.js:37491:19
 ```
 
-This bug was actually discovered and reported prior, but the thread was closed as the reported did not create a simple demo/example of the bug: https://github.com/mui/mui-x/issues/13301
+This bug was actually discovered and reported by another person prior, but the thread was closed as the reporter did not create a simple demo/example of the bug: https://github.com/mui/mui-x/issues/13301
 
 ### How to recreate
 
