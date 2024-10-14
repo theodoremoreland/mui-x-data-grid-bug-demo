@@ -5,6 +5,10 @@
 - [Overview](#overview)
 - [The bug](#the-bug)
   - [How to recreate](#how-to-recreate)
+    - [Use case 1](#use-case-1)
+      - [Screenshots 1](#screenshots-1)
+    - [Use case 2](#use-case-2)
+      - [Screenshots 2](#screenshots-2)
 
 ## Overview
 
@@ -49,7 +53,7 @@ by clicking and dragging the scroll bar down does not produce an error nor does 
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
 5. Change Rows per page option to 10 instead of 50
 
-#### Screenshots
+#### Screenshots 1
 
 <img src="screenshots/1.png" width="600">
 <img src="screenshots/2.png" width="600">
@@ -69,7 +73,7 @@ to get the error to produce in Firefox._
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
 5. Click the DELETE button (top right, just above Data Grid)\
 
-#### Screenshots
+#### Screenshots 2
 
 <img src="screenshots/1.png" width="600">
 <img src="screenshots/2.png" width="600">
