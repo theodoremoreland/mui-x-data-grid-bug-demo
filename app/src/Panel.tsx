@@ -274,7 +274,6 @@ function Panel({ handleClose }: Props): ReactElement {
             )}
           </Stack>
         </Stack>
-
         {selectedTab === 0 ? <Grid1 /> : <Grid2 rows={stateRows} />}
       </Stack>
     </Stack>
