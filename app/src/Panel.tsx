@@ -1,6 +1,6 @@
 import { ReactElement, SyntheticEvent, useEffect, useState } from "react";
 
-import { Add, Close, Delete } from "@mui/icons-material";
+import { Close, Delete, Refresh } from "@mui/icons-material";
 import {
   Button,
   Divider,
@@ -107,6 +107,17 @@ const rows: Person[] = [
 ];
 
 function Grid1(): ReactElement {
+  const columns = [
+    { field: "id", headerName: "ID", width: 90 },
+    {
+      field: "description",
+      headerName: "Description",
+      width: 500,
+    },
+  ];
+  const rows = [
+    { id: 1, description: "Click 'Reset' button to reset Grid #2's state." },
+  ];
   return (
     <DataGrid
       sx={{
@@ -115,19 +126,12 @@ function Grid1(): ReactElement {
       rows={rows}
       columns={columns}
       initialState={{
-        sorting: {
-          sortModel,
-        },
-        pagination: {
-          paginationModel: {
-            page: 0,
-            pageSize: 10,
+        columns: {
+          columnVisibilityModel: {
+            id: false,
           },
         },
       }}
-      pageSizeOptions={[10, 30, 50]}
-      checkboxSelection
-      disableRowSelectionOnClick
     />
   );
 }
@@ -147,7 +151,7 @@ function Grid2({ rows }: { rows: Person[] }): ReactElement {
         pagination: {
           paginationModel: {
             page: 0,
-            pageSize: 10,
+            pageSize: 50,
           },
         },
       }}
@@ -195,6 +199,7 @@ function Panel({ handleClose }: Props): ReactElement {
           style={{
             fontSize: "1.25rem",
             fontWeight: 500,
+            padding: "0px 16px",
             textOverflow: "ellipsis",
             overflow: "hidden",
             whiteSpace: "nowrap",
@@ -245,12 +250,12 @@ function Panel({ handleClose }: Props): ReactElement {
           >
             {selectedTab === 0 ? (
               <Button
-                title="Create"
-                startIcon={<Add />}
+                title="Reset"
+                startIcon={<Refresh />}
                 variant="contained"
-                onClick={() => {}}
+                onClick={() => setStateRows(rows)}
               >
-                Create
+                Reset
               </Button>
             ) : (
               <>
