@@ -104,6 +104,56 @@ const rows: Person[] = [
   { id: 48, lastName: "Hill", firstName: "Frankie", age: 30 },
   { id: 49, lastName: "Flores", firstName: "Gray", age: 40 },
   { id: 50, lastName: "Green", firstName: "Harley", age: 50 },
+  { id: 51, lastName: "Adams", firstName: "Jordan", age: 35 },
+  { id: 52, lastName: "Baker", firstName: "Taylor", age: 42 },
+  { id: 53, lastName: "Carter", firstName: "Morgan", age: 45 },
+  { id: 54, lastName: "Collins", firstName: "Casey", age: 16 },
+  { id: 55, lastName: "Cook", firstName: "Riley", age: 13 },
+  { id: 56, lastName: "Cooper", firstName: "Quinn", age: 99 },
+  { id: 57, lastName: "Cox", firstName: "Peyton", age: 44 },
+  { id: 58, lastName: "Diaz", firstName: "Skyler", age: 36 },
+  { id: 59, lastName: "Evans", firstName: "Dakota", age: 65 },
+  { id: 60, lastName: "Fisher", firstName: "Reese", age: 30 },
+  { id: 61, lastName: "Gomez", firstName: "Avery", age: 25 },
+  { id: 62, lastName: "Graham", firstName: "Harper", age: 40 },
+  { id: 63, lastName: "Griffin", firstName: "Rowan", age: 50 },
+  { id: 64, lastName: "Gutierrez", firstName: "Sawyer", age: 60 },
+  { id: 65, lastName: "Howard", firstName: "Emerson", age: 20 },
+  { id: 66, lastName: "Jenkins", firstName: "Finley", age: 35 },
+  { id: 67, lastName: "Kelly", firstName: "Blake", age: 45 },
+  { id: 68, lastName: "Kim", firstName: "Hayden", age: 55 },
+  { id: 69, lastName: "Long", firstName: "Parker", age: 65 },
+  { id: 70, lastName: "Miller", firstName: "Rory", age: 75 },
+  { id: 71, lastName: "Murphy", firstName: "Remy", age: 85 },
+  { id: 72, lastName: "Myers", firstName: "River", age: 95 },
+  { id: 73, lastName: "Nguyen", firstName: "Sage", age: 70 },
+  { id: 74, lastName: "Ortiz", firstName: "Tatum", age: 65 },
+  { id: 75, lastName: "Peterson", firstName: "Teagan", age: 55 },
+  { id: 76, lastName: "Phillips", firstName: "Wren", age: 45 },
+  { id: 77, lastName: "Powell", firstName: "Zion", age: 35 },
+  { id: 78, lastName: "Price", firstName: "Arden", age: 25 },
+  { id: 79, lastName: "Ramirez", firstName: "Briar", age: 15 },
+  { id: 80, lastName: "Reed", firstName: "Cameron", age: 20 },
+  { id: 81, lastName: "Richardson", firstName: "Dakota", age: 30 },
+  { id: 82, lastName: "Rogers", firstName: "Elliot", age: 40 },
+  { id: 83, lastName: "Ross", firstName: "Frankie", age: 50 },
+  { id: 84, lastName: "Russell", firstName: "Gray", age: 60 },
+  { id: 85, lastName: "Sanchez", firstName: "Harley", age: 70 },
+  { id: 86, lastName: "Sanders", firstName: "Jordan", age: 80 },
+  { id: 87, lastName: "Scott", firstName: "Taylor", age: 90 },
+  { id: 88, lastName: "Simmons", firstName: "Morgan", age: 99 },
+  { id: 89, lastName: "Stewart", firstName: "Casey", age: 85 },
+  { id: 90, lastName: "Thomas", firstName: "Riley", age: 75 },
+  { id: 91, lastName: "Thompson", firstName: "Quinn", age: 65 },
+  { id: 92, lastName: "Torres", firstName: "Peyton", age: 55 },
+  { id: 93, lastName: "Turner", firstName: "Skyler", age: 45 },
+  { id: 94, lastName: "Walker", firstName: "Dakota", age: 35 },
+  { id: 95, lastName: "Ward", firstName: "Reese", age: 25 },
+  { id: 96, lastName: "Watson", firstName: "Avery", age: 15 },
+  { id: 97, lastName: "White", firstName: "Harper", age: 20 },
+  { id: 98, lastName: "Williams", firstName: "Rowan", age: 30 },
+  { id: 99, lastName: "Wilson", firstName: "Sawyer", age: 40 },
+  { id: 100, lastName: "Wood", firstName: "Emerson", age: 50 },
 ];
 
 function Grid1(): ReactElement {
@@ -151,11 +201,11 @@ function Grid2({ rows }: { rows: Person[] }): ReactElement {
         pagination: {
           paginationModel: {
             page: 0,
-            pageSize: 50,
+            pageSize: 100,
           },
         },
       }}
-      pageSizeOptions={[10, 30, 50]}
+      pageSizeOptions={[2, 10, 100]}
       checkboxSelection
       disableRowSelectionOnClick
     />
@@ -261,7 +311,7 @@ function Panel({ handleClose }: Props): ReactElement {
                   variant="outlined"
                   color="error"
                   onClick={() => {
-                    setStateRows(rows.slice(0, 9));
+                    setStateRows(rows.slice(0, 2));
                   }}
                 >
                   Delete
