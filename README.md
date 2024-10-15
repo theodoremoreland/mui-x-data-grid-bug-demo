@@ -10,6 +10,7 @@
       - [Screenshots 1](#screenshots-1)
     - [Use case 2](#use-case-2)
       - [Screenshots 2](#screenshots-2)
+  - [A potential workaround](#a-potential-workaround)
 
 ## Overview
 
@@ -95,3 +96,53 @@ If running the code locally, you should see an error popup in the UI. If running
 <img src="screenshots/3.png" width="600">
 <img src="screenshots/6.png" width="600">
 <img src="screenshots/7.png" width="600">
+
+### A potential workaround
+
+For some reason, how you render React's root DOM node can circumvent the error. For example, given "react": "^18.3.1" and "react-dom": "^18.3.1":
+
+This does not work:
+
+```
+import React from "react";
+import ReactDOM from "react-dom"; // ? This version of ReactDOM causes error
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root") as HTMLElement
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+This does:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // ? This version of ReactDOM does not cause error
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
