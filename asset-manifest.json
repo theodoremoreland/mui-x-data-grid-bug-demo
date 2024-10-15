@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/theodoremoreland/mui-x-data-grid-bug-demo/static/css/main.e18a131f.css",
-    "main.js": "/theodoremoreland/mui-x-data-grid-bug-demo/static/js/main.26b5ea25.js",
-    "static/js/453.a6a97343.chunk.js": "/theodoremoreland/mui-x-data-grid-bug-demo/static/js/453.a6a97343.chunk.js",
-    "index.html": "/theodoremoreland/mui-x-data-grid-bug-demo/index.html",
-    "main.e18a131f.css.map": "/theodoremoreland/mui-x-data-grid-bug-demo/static/css/main.e18a131f.css.map",
-    "main.26b5ea25.js.map": "/theodoremoreland/mui-x-data-grid-bug-demo/static/js/main.26b5ea25.js.map",
-    "453.a6a97343.chunk.js.map": "/theodoremoreland/mui-x-data-grid-bug-demo/static/js/453.a6a97343.chunk.js.map"
+    "main.css": "/mui-x-data-grid-bug-demo/static/css/main.e18a131f.css",
+    "main.js": "/mui-x-data-grid-bug-demo/static/js/main.bbfb74fc.js",
+    "static/js/453.a6a97343.chunk.js": "/mui-x-data-grid-bug-demo/static/js/453.a6a97343.chunk.js",
+    "index.html": "/mui-x-data-grid-bug-demo/index.html",
+    "main.e18a131f.css.map": "/mui-x-data-grid-bug-demo/static/css/main.e18a131f.css.map",
+    "main.bbfb74fc.js.map": "/mui-x-data-grid-bug-demo/static/js/main.bbfb74fc.js.map",
+    "453.a6a97343.chunk.js.map": "/mui-x-data-grid-bug-demo/static/js/453.a6a97343.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e18a131f.css",
-    "static/js/main.26b5ea25.js"
+    "static/js/main.bbfb74fc.js"
   ]
 }
