@@ -10,6 +10,7 @@
       - [Screenshots 1](#screenshots-1)
     - [Use case 2](#use-case-2)
       - [Screenshots 2](#screenshots-2)
+  - [A potential workaround](#a-potential-workaround)
 
 ## Overview
 
@@ -58,7 +59,7 @@ This bug was actually discovered and reported by another person prior, but the t
 _NOTE: Oddly enough, scrolling to the bottom of the grid / virtual scrollbar
 by clicking and dragging the scroll bar down does not produce an error nor does scrolling close to the bottom. The error is only produced by scrolling to the absolute bottom of the scrollbar via scroll wheel in this example._
 
-1. Open app in either Chrome or Firefox web browser
+1. Open app in either Chrome of Firefox web browser
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
@@ -80,7 +81,7 @@ _NOTE: Weirdly enough, the following steps produce an error far more often
 when using Google Chrome, in my experience. It may take multiple attempts
 to get the error to produce in Firefox if at all._
 
-1. Open app in either Chrome or Firefox web browser
+1. Open app in either Chrome of Firefox web browser
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
@@ -95,3 +96,53 @@ If running the code locally, you should see an error popup in the UI. If running
 <img src="screenshots/3.png" width="600">
 <img src="screenshots/6.png" width="600">
 <img src="screenshots/7.png" width="600">
+
+### A potential workaround
+
+For some reason, how you render React's root DOM node can circumvent the error. For example, given "react": "^18.3.1" and "react-dom": "^18.3.1":
+
+This does not work:
+
+```
+import React from "react";
+import ReactDOM from "react-dom"; // ? This version of ReactDOM causes error
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root") as HTMLElement
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+This does:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // ? This version of ReactDOM does not cause error
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
