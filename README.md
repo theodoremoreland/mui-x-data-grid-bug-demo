@@ -29,6 +29,28 @@ This bug was discovered when working on a feature for work, in which case we are
 
 See [app/package.json @ main branch](https://github.com/theodoremoreland/mui-x-data-grid-bug-demo/blob/main/app/package.json) and [app/package.json @ updated-package-versions branch](https://github.com/theodoremoreland/mui-x-data-grid-bug-demo/blob/updated-package-versions/app/package.json) for dependencies. The `main` branch uses package versions similar to that of which I used when first encountering the error. The `updated-package-versions` branch uses more up-to-date versions to similar effect.
 
+Package versions of deployment:
+
+```
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.3",
+    "@mui/material": "^6.1.3",
+    "@mui/x-data-grid": "^7.20.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.113",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+```
+
 ## The bug
 
 When scrolling to the very bottom of the virtual scrollbar using a scroll wheel then decreasing the number of rows in a Data Grid via clicking a lesser page option or via programmatically deleting rows via some custom UI prompt (such as a Delete button) such that the vertical, virtual scroll bar is no longer needed, the Data Grid will throw the following error on `Chrome`:
@@ -52,7 +74,18 @@ _NOTE: Reproducing the error via programmatic deletion is inconsistent on Firefo
 
 This bug was actually discovered and reported by another person prior, but the thread was closed temporarily: https://github.com/mui/mui-x/issues/13301
 
+I deployed an example where you can reproduce the bug here: https://theodoremoreland.github.io/mui-x-data-grid-bug-demo/
+The code can be found here: https://github.com/theodoremoreland/mui-x-data-grid-bug-demo/tree/updated-package-versions
+
 ### How to recreate
+
+The conditions to reproduce the bug are very conditional, if not inconsistent. For example, from what I can tell:
+
+- Chrome and Firefox experience different behavior and even display different error messages
+- Interacting with the virtual scroll bar via scroll wheel as opposed to mouse click+drag has different effects
+- Moving the virtual scroll bar to the absolute bottom of the available space is often required to reproduce bug
+- The UI will display the error if running on local, but it will only appear in the dev console if running via deployment build
+- The syntax used to render React's root DOM node makes a difference given "react": "^18.3.1", "react-dom": "^18.3.1", and "react-scripts": "5.0.1"
 
 #### Use case 1
 
@@ -69,11 +102,11 @@ If running the code locally, you should see an error popup in the UI. If running
 
 #### Screenshots 1
 
-<img src="screenshots/1.png" width="600">
-<img src="screenshots/2.png" width="600">
-<img src="screenshots/3.png" width="600">
-<img src="screenshots/4.png" width="600">
-<img src="screenshots/5.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/1.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/2.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/3.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/4.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/5.png" width="600">
 
 #### Use case 2
 
@@ -91,11 +124,11 @@ If running the code locally, you should see an error popup in the UI. If running
 
 #### Screenshots 2
 
-<img src="screenshots/1.png" width="600">
-<img src="screenshots/2.png" width="600">
-<img src="screenshots/3.png" width="600">
-<img src="screenshots/6.png" width="600">
-<img src="screenshots/7.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/1.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/2.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/3.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/6.png" width="600">
+<img src="https://raw.githubusercontent.com/theodoremoreland/mui-x-data-grid-bug-demo/refs/heads/main/screenshots/7.png" width="600">
 
 ### A potential workaround
 
