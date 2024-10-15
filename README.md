@@ -58,7 +58,7 @@ This bug was actually discovered and reported by another person prior, but the t
 _NOTE: Oddly enough, scrolling to the bottom of the grid / virtual scrollbar
 by clicking and dragging the scroll bar down does not produce an error nor does scrolling close to the bottom. The error is only produced by scrolling to the absolute bottom of the scrollbar via scroll wheel in this example._
 
-1. Open app in either Chrome of Firefox web browser
+1. Open app in either Chrome or Firefox web browser
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
@@ -80,7 +80,7 @@ _NOTE: Weirdly enough, the following steps produce an error far more often
 when using Google Chrome, in my experience. It may take multiple attempts
 to get the error to produce in Firefox if at all._
 
-1. Open app in either Chrome of Firefox web browser
+1. Open app in either Chrome or Firefox web browser
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
