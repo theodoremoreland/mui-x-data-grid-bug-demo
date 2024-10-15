@@ -3,6 +3,7 @@
 ## Table of contents
 
 - [Overview](#overview)
+- [Technologies used](#technologies-used)
 - [The bug](#the-bug)
   - [How to recreate](#how-to-recreate)
     - [Use case 1](#use-case-1)
@@ -18,6 +19,14 @@ I tried to recreate the bug with only the necessary dependencies, styles, and el
 I recreated the bug with two combinations of package versions. The first tries to replicate the packages used when first encountering the error. Said combination can be found on the `main` branch. The second combination tries to use the latest package versions and can be found on the `updated-package-versions` branch.
 
 This bug was discovered when working on a feature for work, in which case we are using Data Grid Premium. However, as I do not have a personal Premium license, this demo uses the free version. It seems both versions encounter the same error.
+
+## Technologies used
+
+- Firefox version `131.0.2 (64-bit)`
+- Chrome version `129.0.6668.100 (Official Build) (64-bit)`
+- Node version `v22.8.0`
+
+See [app/package.json @ main branch](https://github.com/theodoremoreland/mui-x-data-grid-bug-demo/blob/main/app/package.json) and [app/package.json @ updated-package-versions branch](https://github.com/theodoremoreland/mui-x-data-grid-bug-demo/blob/updated-package-versions/app/package.json) for dependencies. The `main` branch uses package versions similar to that of which I used when first encountering the error. The `updated-package-versions` branch uses more up-to-date versions to similar effect.
 
 ## The bug
 
@@ -38,7 +47,7 @@ scrollbar is null
 ./node_modules/@mui/utils/esm/useEventCallback/useEventCallback.js/useEventCallback/<@http://localhost:3000/static/js/bundle.js:37491:19
 ```
 
-This bug was actually discovered and reported by another person prior, but the thread was closed as the reporter did not create a simple demo/example of the bug: https://github.com/mui/mui-x/issues/13301
+This bug was actually discovered and reported by another person prior, but the thread was closed temporarily: https://github.com/mui/mui-x/issues/13301
 
 ### How to recreate
 
@@ -71,7 +80,7 @@ to get the error to produce in Firefox._
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
-5. Click the DELETE button (top right, just above Data Grid)\
+5. Click the DELETE button (top right, just above Data Grid)
 
 #### Screenshots 2
 
