@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "homepage": "https://github.com/theodoremoreland/mui-x-data-grid-bug-demo",
+  "homepage": "https://theodoremoreland.github.io/mui-x-data-grid-bug-demo",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
