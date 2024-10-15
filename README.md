@@ -47,6 +47,8 @@ scrollbar is null
 ./node_modules/@mui/utils/esm/useEventCallback/useEventCallback.js/useEventCallback/<@http://localhost:3000/static/js/bundle.js:37491:19
 ```
 
+_NOTE: Reproducing the error via programmatic deletion is inconsistent on Firefox (in my experience). However, the error occurs consistently in Chrome and in both browsers via decreasing page option._
+
 This bug was actually discovered and reported by another person prior, but the thread was closed temporarily: https://github.com/mui/mui-x/issues/13301
 
 ### How to recreate
@@ -60,7 +62,9 @@ by clicking and dragging the scroll bar down does not produce an error nor does 
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
-5. Change Rows per page option to 10 instead of 50
+5. Change Rows per page option to 2 instead of 100
+
+If running the code locally, you should see an error popup in the UI. If running a deployed build, you may only see the error in the dev console.
 
 #### Screenshots 1
 
@@ -73,14 +77,16 @@ by clicking and dragging the scroll bar down does not produce an error nor does 
 #### Use case 2
 
 _NOTE: Weirdly enough, the following steps produce an error far more often
-when using Google Chrome in my experience. It may take multiple attempts
-to get the error to produce in Firefox._
+when using Google Chrome, in my experience. It may take multiple attempts
+to get the error to produce in Firefox if at all._
 
 1. Open app in either Chrome of Firefox web browser
 2. Click OPEN button to open Drawer component featuring two Data Grids
 3. Click Grid #2 tab
 4. Scroll to the absolute bottom of the data grid using **scroll wheel** (not by dragging scroll bar down with mouse)
 5. Click the DELETE button (top right, just above Data Grid)
+
+If running the code locally, you should see an error popup in the UI. If running a deployed build, you may only see the error in the dev console.
 
 #### Screenshots 2
 
