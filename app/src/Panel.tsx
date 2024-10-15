@@ -1,4 +1,4 @@
-import { ReactElement, SyntheticEvent, useEffect, useState } from "react";
+import { ReactElement, SyntheticEvent, useState } from "react";
 
 import { Close, Delete, Refresh } from "@mui/icons-material";
 import {
@@ -165,10 +165,6 @@ function Grid2({ rows }: { rows: Person[] }): ReactElement {
 function Panel({ handleClose }: Props): ReactElement {
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const [stateRows, setStateRows] = useState<Person[]>(rows);
-
-  useEffect(() => {
-    setStateRows(rows);
-  }, []);
 
   const handleTabSelection = (_: SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
